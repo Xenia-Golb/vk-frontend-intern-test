@@ -101,7 +101,6 @@ function UserList() {
         <>
             <div className={styles.header}>
                 <Select
-                    className="custom-select"
                     defaultValue="all"
                     style={{ width: 120 }}
                     onChange={value => setFilter(value as 'all' | 'favorites')}
@@ -113,7 +112,7 @@ function UserList() {
             <div className={styles.users}>
                 {loading && users.length === 0 ? (
                     Array.from({ length: 10 }).map((_, index) => (
-                        <Skeleton key={index} active avatar title paragraph={{ rows: 1 }} />
+                        <Skeleton key={index} active avatar title paragraph={{ rows: 1 }} className="skeleton-fade" />
                     ))
                 ) : (
                     users.map(user => (
