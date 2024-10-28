@@ -1,14 +1,13 @@
-import UserList from "./components/UserList/UserList"
-
+import UserList from "./components/UserList/UserList";
+import './App.css';
 
 function App() {
-
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <h1>GitHub Users</h1>
+    <div className="app-container">
+      <h1 className="app-title">GitHub Users</h1>
       <UserList />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

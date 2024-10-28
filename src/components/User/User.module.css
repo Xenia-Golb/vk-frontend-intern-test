@@ -3,45 +3,64 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 20px;
-    border: 2px solid rgb(94, 93, 93)
+    border: 1px solid #bcccdc;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+    background-color: #e3f2f9;
+    border-color: #8bbcd7;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
 }
 
 .link {
     color: #333;
     text-decoration: none;
-    transition: color 0.3s ease;
-    font-size: 14px;
+    transition: color 0.3s ease, transform 0.2s ease;
+    font-size: 16px;
+    font-weight: 500;
     margin-top: 10px;
 }
 
-.delete {
+.link:hover {
+    color: #0056b3;
+    transform: scale(1.05);
+}
+
+.delete,
+.edit,
+.active {
     position: absolute;
     top: 10px;
-    right: 10px;
     cursor: pointer;
+    font-size: 22px;
+    transition: color 0.3s ease, transform 0.2s ease;
+    color: #777;
 }
 
 .edit {
-    position: absolute;
-    top: 10px;
     left: 10px;
-    cursor: pointer;
 }
 
-.edit:hover {
-    color: #902020;
-    transition: color 0.3s ease;
-    transform: scale(1.0);
-    transform-origin: center;
+.delete {
+    right: 10px;
 }
 
-.card:hover {
-    background-color: #f1f1f1;
-    transition: background-color 0.9s ease;
-    border-color: #ddd;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
+.edit:hover,
+.delete:hover,
+.active:hover {
+    color: #ff4d4f;
+    transform: scale(1.15);
+}
 
+.active {
+    left: 10px;
+    color: #ff4d4f;
+}
+
+.active:hover {
+    color: #d32f2f;
 }
