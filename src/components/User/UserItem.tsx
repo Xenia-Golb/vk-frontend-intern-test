@@ -1,45 +1,32 @@
-import Card from "antd/es/card/Card";
 import { UserItemProps } from "./UserItem.props";
 import Avatar from "antd/es/avatar/avatar";
-import { Button } from "antd/es/radio";
-import Input from "antd/es/input/Input";
-import { useState } from "react";
+import { DeleteOutlined, HeartOutlined } from "@ant-design/icons";
+import styles from './User.module.css'
+
 
 function User({ user, onDelete, onEdit }: UserItemProps) {
-    const [editName, setEditName] = useState<string>('');
-    const [isEditing, setIsEditing] = useState<boolean>(false);
-
-    const handleEdit = () => {
-        if (editName) {
-            onEdit(user.id, editName);
-            setIsEditing(false);
-            setEditName('');
-        }
-    };
     return (
-        <Card style={{ marginBottom: '16px' }}>
-            <Avatar src={user.avatar_url} alt={user.login}
+        <div className={styles['card']}>
+            <Avatar src={user.avatar_url}
+                alt={user.login}
                 size={100}
             />
-            <h3>{user.login}</h3>
-            <p>Public Repositories: {user.id}</p>
-            {[
-                <Button onClick={() => onDelete(user.id)}>Delete</Button>,
-                isEditing ? (
-                    <>
-                        <Input
-                            value={editName}
-                            onChange={e => setEditName(e.target.value)}
-                            placeholder="New Name"
-                        />
-                        <Button onClick={handleEdit}>Save</Button>
-                    </>
-                ) : (
-                    <Button onClick={() => { setEditName(user.login); setIsEditing(true); }}>Edit</Button>
-                ),
-            ]}
+            <a className={styles['link']} href={user.html_url} target="_blank" rel="noopener noreferrer">
+                {user.login}
+            </a>
+            <HeartOutlined
+                key="edit"
+                className={styles['edit']}
+                onClick={() => onEdit(user)}
+            />
+            <DeleteOutlined
+                key="delete"
+                className={styles['delete']}
 
-        </Card>
+                onClick={() => onDelete(user.id)}
+            />
+
+        </div>
     );
 }
 

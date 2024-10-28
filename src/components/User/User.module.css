@@ -1,0 +1,47 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px solid rgb(94, 93, 93)
+}
+
+.link {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.edit {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+}
+
+.edit:hover {
+    color: #902020;
+    transition: color 0.3s ease;
+    transform: scale(1.0);
+    transform-origin: center;
+}
+
+.card:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.9s ease;
+    border-color: #ddd;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+
+}
