@@ -111,7 +111,7 @@ function UserList() {
             </div>
             <div className={styles.users}>
                 {loading && users.length === 0 ? (
-                    Array.from({ length: 10 }).map((_, index) => (
+                    Array.from({ length: 12 }).map((_, index) => (
                         <Skeleton key={index} active avatar title paragraph={{ rows: 1 }} className="skeleton-fade" />
                     ))
                 ) : (
