@@ -21,11 +21,17 @@ function UserItem({ user, isFavorite, addToFavorites, removeFromFavorites, handl
             </a>
             <div className={styles.icons}>
                 {isFavorite ? (
-                    <HeartFilled className={styles.active} onClick={handleFavoriteClick} style={{ color: 'red' }} />
+                    <HeartFilled className={styles.active}
+                        aria-label="Remove from favorites"
+                        onClick={handleFavoriteClick} style={{ color: 'red' }} />
                 ) : (
-                    <HeartOutlined className={styles.edit} onClick={handleFavoriteClick} />
+                    <HeartOutlined className={styles.edit}
+                        aria-label="Add to favorites"
+                        onClick={handleFavoriteClick} />
                 )}
-                <DeleteOutlined className={styles.delete} onClick={() => handleDelete(user.id)} />
+                <DeleteOutlined className={styles.delete}
+                    aria-label="Delete user"
+                    onClick={() => handleDelete(user.id)} />
             </div>
         </div>
     );
