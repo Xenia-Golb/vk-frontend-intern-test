@@ -1,8 +1,8 @@
 import { User } from "../../types/types";
 
-export interface UserItemProps {
-    user: User;
-    isFavorite: boolean;
+export interface UserListProps {
+    users: User[];
+    favorites: User[];
     addToFavorites: (user: User) => void;
     removeFromFavorites: (user: User) => void;
     handleDelete: (id: number) => void;
