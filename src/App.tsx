@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import UserList from './components/UserList/UserList';
-import './App.css';
+import styles from './App.module.css';
 import { User } from './types/types';
-import { message, Select } from 'antd';
+import { message, Select, Skeleton } from 'antd';
 
 
 const { Option } = Select;
@@ -99,9 +99,9 @@ function App() {
 
 
   return (
-    <div className="app-container">
-      <h1 className="app-title">GitHub Users</h1>
-      <div className='header'>
+    <div className={styles['app-container']}>
+      <h1 className={styles['app-title']}>GitHub Users</h1>
+      <div className={styles['header']}>
         <Select
           defaultValue="all"
           style={{ width: 120 }}
@@ -111,15 +111,19 @@ function App() {
           <Option value="favorites">Favorites</Option>
         </Select>
       </div>
-      <UserList
-        users={users}
-        favorites={favorites}
-        addToFavorites={addToFavorites}
-        removeFromFavorites={removeFromFavorites}
-        handleDelete={handleDelete}
-      />
-    </div>
-  );
-}
+      {loading && users.length === 0 ? (
+        Array.from({ length: 12 }).map((_, index) => (
+          <Skeleton key={index} active avatar title paragraph={{ rows: 1 }} className={styles["skeleton-fade"]} />
+        ))
+      ) : (
+        <UserList
+          users={users}
+          favorites={favorites}
+          addToFavorites={addToFavorites}
+          removeFromFavorites={removeFromFavorites}
+          handleDelete={handleDelete}
+        />)}
+    </div>)
+};
 
 export default App;
